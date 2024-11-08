@@ -1,0 +1,4 @@
+This is AMD's LIGHTOCLSDK, which should be fine with NVIDIA, Intel and AMD:
+The actual work is performed by the driver.
+Retrieved on August 22, 2022 from:
+https://github.com/GPUOpen-LibrariesAndSDKs/OCL-SDK/releases

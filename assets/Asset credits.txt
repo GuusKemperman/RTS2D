@@ -1,0 +1,15 @@
+Main asset pack:
+https://iknowkingrabbit.itch.io/rtseries-sands
+
+Projectiles:
+https://blackdragon1727.itch.io/fire-pixel-bullet-16x16
+
+Explosions:
+https://opengameart.org/content/explosion-animations
+
+Cursors were taken from this mod for Command&Conquer Zero Hour:
+https://www.moddb.com/mods/rise-of-the-reds/addons/cursors-from-ra3
+
+Various images were generated with the DALL-E AI
+https://labs.openai.com/
+

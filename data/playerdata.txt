@@ -1,0 +1,813 @@
+input {
+	default {
+		movecamleft = 65 263
+		movecamdown = 83 264
+		movecamright = 68 262
+		movecamup = 87 265
+		select = 348
+		command = 349
+		pause = 256
+	}
+	movecamleft = 65 263
+	movecamdown = 83 264
+	movecamright = 68 262
+	movecamup = 87 265
+	select = 348
+	command = 349
+	pause = 256
+}
+entity {
+	military {
+		smalltank {
+			mass = 1.0
+			maxturn = 45.0
+			maxforce = 40.0
+			maxspeed = 60.0
+			maxhealth = 2.0
+			spritetype = smalltank
+			turrettype = smallcannon
+			explosiontype = medium
+			collisionlayer = 00000001
+		}
+		hugetank {
+			mass = 5.0
+			maxturn = 22.5
+			maxforce = 250.0
+			maxspeed = 50.0
+			maxhealth = 10.0
+			spritetype = hugetank
+			turrettype = largecannon
+			explosiontype = large
+			collisionlayer = 00000001
+		}
+		chopper {
+			mass = .5
+			maxturn = 180.0
+			maxforce = 10.0
+			maxspeed = 150.0
+			maxhealth = .5
+			spritetype = chopper
+			turrettype = airtoground
+			explosiontype = small
+			collisionlayer = 00000010
+		}
+	}
+	projectile {
+		smallshell {
+			damage = 1.0
+			explosiontype = small
+			spriterow = 0
+		}
+		largeshell {
+			damage = 10.0
+			explosiontype = large
+			spriterow = 1
+		}
+		largebullet {
+			damage = .1wa
+			explosiontype = spark
+			spriterow = 2
+		}
+	}
+	explosion {
+		spark {
+			spritetype = sparkexplosion
+			lifetime = .5
+		}
+		small {
+			spritetype = smallexplosion
+			lifetime = .25
+		}
+		medium {
+			spritetype = mediumexplosion
+			lifetime = .5
+		}
+		large {
+			spritetype = largeexplosion
+			lifetime = 1.0
+		}
+		smoke {
+			spritetype = smoke
+			lifetime = 1.0
+		}
+	}
+}
+component {
+	sprite {
+		smalltank {
+			priority = 10
+		}
+		hugetank {
+			priority = 10
+		}
+		chopper {
+			priority = 21
+		}
+		projectiles {
+			priority = 20
+		}
+		sparkexplosion {
+			priority = 29
+		}
+		smallexplosion {
+			priority = 30
+		}
+		mediumexplosion {
+			priority = 31
+		}
+		largeexplosion {
+			priority = 32
+		}
+		smoke {
+			priority = 33
+		}
+	}
+	turret {
+		smallcannon {
+			projectiletype = smallshell
+			fireswithvel = 200.0
+			cooldown = 2.0
+			barrellength = 2.0
+			range = 500.0
+			rotationrange = 30.0
+			collisionlayer = 00000011
+		}
+		largecannon {
+			projectiletype = largeshell
+			fireswithvel = 100.0
+			cooldown = 5.0
+			barrellength = 2.0
+			range = 700.0
+			rotationrange = 10.0
+			collisionlayer = 00000001
+		}
+		airtoground {
+			projectiletype = largebullet
+			fireswithvel = 300.0
+			cooldown = .1
+			barrellength = 2.0
+			range = 250.0
+			rotationrange = 10.0
+			collisionlayer = 00000011
+		}
+	}
+}
+sprites {
+	smalltank {
+		file = assets/units/smalltank.png
+		numofrows = 1
+		numofcolumns = 24
+	}
+	hugetank {
+		file = assets/units/hugetank.png
+		numofrows = 1
+		numofcolumns = 24
+	}
+	chopper {
+		file = assets/units/chopper.png
+		numofrows = 1
+		numofcolumns = 24
+	}
+	projectiles {
+		file = assets/projectiles.png
+		numofrows = 3
+		numofcolumns = 32
+	}
+	sparkexplosion {
+		file = assets/sparkexplosion.png
+		numofrows = 1
+		numofcolumns = 4
+	}
+	smallexplosion {
+		file = assets/smallexplosion.png
+		numofrows = 1
+		numofcolumns = 4
+	}
+	mediumexplosion {
+		file = assets/mediumexplosion.png
+		numofrows = 1
+		numofcolumns = 10
+	}
+	largeexplosion {
+		file = assets/largeexplosion.png
+		numofrows = 1
+		numofcolumns = 10
+	}
+	smoke {
+		file = assets/smoke.png
+		numofrows = 1
+		numofcolumns = 6
+	}
+	cursor {
+		file = assets/cursor.png
+		numofrows = 6
+		numofcolumns = 2
+	}
+	bottompanelbackground {
+		file = assets/ui/bottompanelbackground.png
+		numofrows = 1
+		numofcolumns = 1
+	}
+	alertlight {
+		file = assets/ui/alertlight.png
+		numofrows = 1
+		numofcolumns = 2
+	}
+	victory {
+		file = assets/ui/victory.png
+		numofrows = 1
+		numofcolumns = 1
+	}
+	defeat {
+		file = assets/ui/defeat.png
+		numofrows = 1
+		numofcolumns = 1
+	}
+	actions {
+		file = assets/ui/actions.png
+		numofrows = 1
+		numofcolumns = 1
+	}
+	buttonmenumainmenu {
+		file = assets/ui/buttonmenumainmenu.png
+		numofrows = 1
+		numofcolumns = 1
+	}
+	pausemenu {
+		file = assets/ui/pausemenu.png
+		numofrows = 1
+		numofcolumns = 1
+	}
+}
+actions {
+	stop {
+		index = 21
+		frame = 0
+	}
+}
+tilesets {
+	default {
+		file = assets/tilesets/default.png
+		widthintiles = 9
+		heightintiles = 22
+	}
+}
+maps {
+	default {
+		tileset = default
+		file = data/maps/default.csv
+		widthintiles = 256
+		heightintiles = 256
+	}
+	huge {
+		tileset = default
+		file = data/maps/huge.csv
+		widthintiles = 1024
+		heightintiles = 1024
+	}
+	big {
+		tileset = default
+		file = data/maps/big.csv
+		widthintiles = 512
+		heightintiles = 512
+	}
+}
+scenes {
+	playing {
+		map = default
+		canvas = playing
+	}
+	mainmenu {
+		map = default
+		canvas = mainmenu
+	}
+}
+canvases {
+	mainmenu {
+		buttonmenumainmenu {
+			demo1 {
+				name {
+					type = text
+					text = 2 units
+					scale = 3
+					isactive = 1
+					posx = 166
+					posy = 29
+				}
+				type = button
+				sizex = 332
+				sizey = 58
+				posx = 13
+				posy = 13
+				isactive = 1
+			}
+			demo2 {
+				name {
+					type = text
+					text = 1024 units
+					scale = 3
+					isactive = 1
+					posx = 166
+					posy = 29
+				}
+				type = button
+				sizex = 332
+				sizey = 58
+				posx = 13
+				posy = 77
+				isactive = 1
+			}
+			demo3 {
+				name {
+					type = text
+					text = 2500 units
+					scale = 3
+					isactive = 1
+					posx = 166
+					posy = 29
+				}
+				type = button
+				sizex = 332
+				sizey = 58
+				posx = 13
+				posy = 141
+				isactive = 1
+			}
+			demo4 {
+				name {
+					type = text
+					text = 3600 units
+					scale = 3
+					isactive = 1
+					posx = 166
+					posy = 29
+				}
+				type = button
+				sizex = 332
+				sizey = 58
+				posx = 13
+				posy = 205
+				isactive = 1
+			}
+			demo5 {
+				name {
+					type = text
+					text = 4096 units
+					scale = 3
+					isactive = 1
+					posx = 166
+					posy = 29
+				}
+				type = button
+				sizex = 332
+				sizey = 58
+				posx = 13
+				posy = 269
+				isactive = 1
+			}
+			exit {
+				name {
+					type = text
+					text = exit game
+					scale = 3
+					isactive = 1
+					posx = 166
+					posy = 29
+				}
+				type = button
+				sizex = 332
+				sizey = 58
+				posx = 13
+				posy = 333
+				isactive = 1
+			}
+			type = uisprite
+			spritetype = buttonmenumainmenu
+			isactive = 1
+			posx = 1499
+			posy = 63
+		}
+	}
+	playing {
+		bottompanelbackground {
+			alertlight {
+				type = uisprite
+				spritetype = alertlight
+				posx = 267
+				posy = 12
+				isactive = 1
+			}
+			minimap {
+				type = minimap
+				sizex = 309
+				sizey = 309
+				posx = 17
+				posy = 65
+				isactive = 1
+			}
+			actionsnode {
+				action {
+					action0 {
+						type = button
+						sizex = 100
+						sizey = 100
+						isactive = 1
+					}
+					actionsprite {
+						type = uisprite
+						spritetype = actions
+						isactive = 1
+					}
+					isactive = 1
+				}
+				action {
+					action1 {
+						type = button
+						sizex = 100
+						sizey = 100
+						isactive = 1
+					}
+					actionsprite {
+						type = uisprite
+						spritetype = actions
+						isactive = 1
+					}
+					posx = 105
+					isactive = 1
+				}
+				action {
+					action2 {
+						type = button
+						sizex = 100
+						sizey = 100
+						isactive = 1
+					}
+					actionsprite {
+						type = uisprite
+						spritetype = actions
+						isactive = 1
+					}
+					posx = 210
+					isactive = 1
+				}
+				action {
+					action3 {
+						type = button
+						sizex = 100
+						sizey = 100
+						isactive = 1
+					}
+					actionsprite {
+						type = uisprite
+						spritetype = actions
+						isactive = 1
+					}
+					posx = 315
+					isactive = 1
+				}
+				action {
+					action4 {
+						type = button
+						sizex = 100
+						sizey = 100
+						isactive = 1
+					}
+					actionsprite {
+						type = uisprite
+						spritetype = actions
+						isactive = 1
+					}
+					posx = 420
+					isactive = 1
+				}
+				action {
+					action5 {
+						type = button
+						sizex = 100
+						sizey = 100
+						isactive = 1
+					}
+					actionsprite {
+						type = uisprite
+						spritetype = actions
+						isactive = 1
+					}
+					posx = 525
+					isactive = 1
+				}
+				action {
+					action6 {
+						type = button
+						sizex = 100
+						sizey = 100
+						isactive = 1
+					}
+					actionsprite {
+						type = uisprite
+						spritetype = actions
+						isactive = 1
+					}
+					posx = 630
+					isactive = 1
+				}
+				action {
+					action7 {
+						type = button
+						sizex = 100
+						sizey = 100
+						isactive = 1
+					}
+					actionsprite {
+						type = uisprite
+						spritetype = actions
+						isactive = 1
+					}
+					posx = 735
+					isactive = 1
+				}
+				action {
+					action8 {
+						type = button
+						sizex = 100
+						sizey = 100
+						isactive = 1
+					}
+					actionsprite {
+						type = uisprite
+						spritetype = actions
+						isactive = 1
+					}
+					posx = 840
+					isactive = 1
+				}
+				action {
+					action9 {
+						type = button
+						sizex = 100
+						sizey = 100
+						isactive = 1
+					}
+					actionsprite {
+						type = uisprite
+						spritetype = actions
+						isactive = 1
+					}
+					posx = 945
+					isactive = 1
+				}
+				action {
+					action10 {
+						type = button
+						sizex = 100
+						sizey = 100
+						isactive = 1
+					}
+					actionsprite {
+						type = uisprite
+						spritetype = actions
+						isactive = 1
+					}
+					posx = 1050
+					isactive = 1
+				}
+				action {
+					action11 {
+						type = button
+						sizex = 100
+						sizey = 100
+						isactive = 1
+					}
+					actionsprite {
+						type = uisprite
+						spritetype = actions
+						isactive = 1
+					}
+					posy = 105
+					isactive = 1
+				}
+				action {
+					action12 {
+						type = button
+						sizex = 100
+						sizey = 100
+						isactive = 1
+					}
+					actionsprite {
+						type = uisprite
+						spritetype = actions
+						isactive = 1
+					}
+					posx = 105
+					posy = 105
+					isactive = 1
+				}
+				action {
+					action13 {
+						type = button
+						sizex = 100
+						sizey = 100
+						isactive = 1
+					}
+					actionsprite {
+						type = uisprite
+						spritetype = actions
+						isactive = 1
+					}
+					posx = 210
+					posy = 105
+					isactive = 1
+				}
+				action {
+					action14 {
+						type = button
+						sizex = 100
+						sizey = 100
+						isactive = 1
+					}
+					actionsprite {
+						type = uisprite
+						spritetype = actions
+						isactive = 1
+					}
+					posx = 315
+					posy = 105
+					isactive = 1
+				}
+				action {
+					action15 {
+						type = button
+						sizex = 100
+						sizey = 100
+						isactive = 1
+					}
+					actionsprite {
+						type = uisprite
+						spritetype = actions
+						isactive = 1
+					}
+					posx = 420
+					posy = 105
+					isactive = 1
+				}
+				action {
+					action16 {
+						type = button
+						sizex = 100
+						sizey = 100
+						isactive = 1
+					}
+					actionsprite {
+						type = uisprite
+						spritetype = actions
+						isactive = 1
+					}
+					posx = 525
+					posy = 105
+					isactive = 1
+				}
+				action {
+					action17 {
+						type = button
+						sizex = 100
+						sizey = 100
+						isactive = 1
+					}
+					actionsprite {
+						type = uisprite
+						spritetype = actions
+						isactive = 1
+					}
+					posx = 630
+					posy = 105
+					isactive = 1
+				}
+				action {
+					action18 {
+						type = button
+						sizex = 100
+						sizey = 100
+						isactive = 1
+					}
+					actionsprite {
+						type = uisprite
+						spritetype = actions
+						isactive = 1
+					}
+					posx = 735
+					posy = 105
+					isactive = 1
+				}
+				action {
+					action19 {
+						type = button
+						sizex = 100
+						sizey = 100
+						isactive = 1
+					}
+					actionsprite {
+						type = uisprite
+						spritetype = actions
+						isactive = 1
+					}
+					posx = 840
+					posy = 105
+					isactive = 1
+				}
+				action {
+					action20 {
+						type = button
+						sizex = 100
+						sizey = 100
+						isactive = 1
+					}
+					actionsprite {
+						type = uisprite
+						spritetype = actions
+						isactive = 1
+					}
+					posx = 945
+					posy = 105
+					isactive = 1
+				}
+				action {
+					action21 {
+						type = button
+						sizex = 100
+						sizey = 100
+						isactive = 1
+					}
+					actionsprite {
+						type = uisprite
+						spritetype = actions
+						isactive = 1
+					}
+					posx = 1050
+					posy = 105
+					isactive = 1
+				}
+				posx = 413
+				posy = 174
+				isactive = 1
+			}
+			type = uisprite
+			spritetype = bottompanelbackground
+			posx = 0
+			posy = 687
+			isactive = 1
+		}
+		nodewin {
+			victory {
+				type = uisprite
+				spritetype = victory
+			}
+			defeat {
+				type = uisprite
+				spritetype = defeat
+			}
+			posx = 438
+			posy = 242
+			isactive = 1
+		}
+		pausemenu {
+			returnmainmenu {
+				type = button
+				sizex = 332
+				sizey = 58
+				isactive = 1
+				posx = 13
+				posy = 13
+			}
+			returntogame {
+				type = button
+				sizex = 332
+				sizey = 58
+				isactive = 1
+				posx = 13
+				posy = 77
+			}
+			background {
+				type = uisprite
+				spritetype = pausemenu
+				isactive = 1
+			}
+			name {
+				type = text
+				text = return to game
+				scale = 3
+				isactive = 1
+				posx = 179
+				posy = 106
+			}
+			name {
+				type = text
+				text = main menu
+				scale = 3
+				isactive = 1
+				posx = 179
+				posy = 42
+			}
+			posx = 783
+			posy = 448
+		}
+	}
+}

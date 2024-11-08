@@ -1,0 +1,2 @@
+Version 3.3.8; obtained August 22, 2022.
+https://www.glfw.org/download
