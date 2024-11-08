@@ -1,0 +1,6 @@
+
+.vs
+*.vcxproj.user
+Intermediate/
+Build/
+/Assets/PolygonPack
